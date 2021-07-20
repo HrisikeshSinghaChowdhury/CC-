@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+clrscr();
+int gcd=1,c=1,m,n;
+printf("\n enter the 1st numbers");
+scanf("\n %d",&m);
+scanf("\n %d",&n);
+while(c<=m)
+{
+if((m%c==0)&&(n%c==0))
+{
+gcd=gcd*c;
+m=m/c;
+n=n/c;
+c=1;
+}
+c++;
+}
+
+
+printf("\n the HCF is %d",gcd);
+getch();
+}

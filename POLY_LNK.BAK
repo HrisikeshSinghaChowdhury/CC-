@@ -1,0 +1,151 @@
+/* Polynomial using linked list */
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+/* definition of list */
+struct linklist
+{
+	int coeff;
+	int index;
+	struct linklist *next;
+};
+
+typedef struct linklist node;
+
+
+/* creates a list */
+ void create(node *list)
+ {
+		char res;
+		while(1)
+		{
+			printf("Enter particulars of node ( a x^y ) :\n");
+			printf("Enter coefficient (a) :");
+			scanf("%d",&list->coeff);
+			printf("Enter index in descending order (y) :");
+			scanf("%d",&list->index);
+			printf("Do you want to add another node (Y / N)");
+			res=getche();
+			if(res=='y'||res=='Y')
+			{
+				 list->next = (node *)malloc(sizeof(node));
+				 list=list->next;
+			}
+			else
+			{
+				list ->next=NULL;
+				break;
+			}
+		}
+		return;
+ }
+
+
+ void print(node *list)
+ {
+	  while(list->next!=NULL)
+	  {
+		  if(list->index==0)
+			 printf("%d + ",list->coeff);
+		  else
+		    printf("%d x^%d  +  ",list->coeff,list->index);
+		  list=list->next;
+	  }
+		  if(list->index==0)
+			 printf("%d ",list->coeff);
+		  else
+			 printf("%d x^%d ",list->coeff,list->index);
+
+}
+
+
+ void add (node *list1, node *list2)
+ {
+		node *sumlist,*sumhead;
+		sumlist=(node *)malloc(sizeof(node));
+      sumhead=sumlist;
+		while((list1!=NULL)&&(list2!=NULL))
+		{
+			if(list1->index==list2->index)
+			{
+			  sumlist->coeff=list1->coeff + list2->coeff;
+			  sumlist->index=list1->index;
+			  list1=list1->next;
+			  list2=list2->next;
+			}
+			else if(list1->index > list2->index)
+			{
+				sumlist->coeff=list1->coeff;
+				sumlist->index=list1->index;
+				list1=list1->next;
+			}
+			else
+			{
+				sumlist->coeff=list2->coeff;
+				sumlist->index=list2->index;
+				list2=list2->next;
+			}
+			sumlist->next=(node *)malloc(sizeof(node));
+			sumlist=sumlist->next;
+		}
+
+		while(list1!=NULL)
+		{
+			sumlist->coeff=list1->coeff;
+			sumlist->index=list1->index;
+			list1=list1->next;
+			sumlist->next=(node *)malloc(sizeof(node));
+			sumlist=sumlist->next;
+		}
+
+		while(list2!=NULL)
+		{
+			sumlist->coeff=list2->coeff;
+			sumlist->index=list2->index;
+			list2=list2->next;
+			sumlist->next=(node *)malloc(sizeof(node));
+			sumlist=sumlist->next;
+		}
+
+		sumlist->next=NULL;
+
+		printf("\n\nSum of the two polynomials is : \n");
+		sumlist=sumhead;
+		while(sumlist->next->next!=NULL)
+		{
+			if(sumlist->index==0)
+				printf("%d + ",sumlist->coeff);
+			else
+				printf("%d x^%d + ",sumlist->coeff,sumlist->index);
+			sumlist=sumlist->next;
+		}
+			if(sumlist->index==0)
+				printf("%d ",sumlist->coeff);
+			else
+				printf("%d x^%d ",sumlist->coeff,sumlist->index);
+
+}
+
+
+
+void main()
+{
+	node *list1, *list2;
+	list1=(node *)malloc(sizeof(node));
+	clrscr();
+	printf("\n ADDITION OF TWO POLYNOMIALS");
+	printf("\n-----------------------------\n");
+	printf("\nEnter particulars of First polynomial : \n\n");
+	create(list1);
+	printf("\n\nEnter particulars of Second polynomial : \n");
+	list2=(node *)malloc(sizeof(node));
+	create(list2);
+	printf("\n\nFirst polynomial : \t");
+	print(list1);
+	printf("\n\nSecond polynomial : \t");
+	print(list2);
+	add(list1,list2);
+	getch();
+}

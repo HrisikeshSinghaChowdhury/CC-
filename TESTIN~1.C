@@ -1,0 +1,28 @@
+#include<graphics.h>
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+   int graphdriver = VGA,graphmode=VGAHI,x,y,i,k;
+   int col1=4;//col2=15,col3=10;
+    //int k,sp1=26,sp2=13,sp3=30,sp4=12,sp5=28,sp19=25,sp15=12,sp16=6,sp18=25,sp13=20,sp6=12,sp7=25,sp8=18,sp9=18,sp10=28,sp11=18,sp12=8;
+
+   initgraph(&graphdriver,&graphmode,"C:\\Turboc3\\BGI");
+   setbkcolor(1);
+  for(i=1;i<=24;i++)
+  {
+  if(i==1)
+  {
+  for(k=1;k<=33;k++)
+  printf(" ");
+  putpixel(245,12,15);
+  putpixel(259,12,15);
+  //printf(". .");
+  }
+}
+   getch();
+   closegraph();
+
+ }

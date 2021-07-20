@@ -1,0 +1,95 @@
+#include<graphics.h>
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
+#include<conio.h>
+#include<dos.h>
+void main()
+{
+   int graphdriver = VGA,graphmode=VGAHI,j=320,x1=230,x2,x3=230,x4,mid,k,a=50;
+
+
+   initgraph(&graphdriver,&graphmode,"C:\\Turboc3\\BGI");
+   line(20,320,90,350);
+   line(84,367,90,350);
+   line(15,340,84,367);
+   line(15,340,24,320);
+
+  setfillstyle(SOLID_FILL,WHITE);
+
+
+  floodfill(20,330,15);
+   while(!kbhit())
+
+   {
+
+	setviewport(88,353,141,386,1);
+	clearviewport();
+	line(0,2,40,20);
+	setviewport(0,300,20,330,1);
+	line(0,15,26,25);
+	delay(1800);
+	clearviewport();
+	setviewport(88,353,141,386,1);
+	clearviewport();
+	line(0,9,40,27);
+	setviewport(0,300,20,330,1);
+	line(0,20,27,35);
+	delay(1800);
+	clearviewport();
+
+	setviewport(0,0,360,420,1);
+	//arc(40,275,10,140,10);
+       //	line(40,5,40,j--);
+	//kite
+	//setviewport(0,0,360,j+10,1);
+	clearviewport();
+
+	x2=x1-20;
+       line(10,x1,50,x2);
+	line(80,x1,50,x2);
+
+	x4=x3+20;
+
+	line(10,x3,50,x4);
+	line(80,x3,50,x4);
+
+	//tail
+	line(50,x4,40,x4+10);
+	line(50,x4,60,x4+10);
+	line(40,x4+10,60,x4+10);
+     //	mid=(x2+x4)/2;
+	//printf("%d",mid);
+     // setfillstyle(SOLID_FILL,YELLOW);
+      // floodfill(30,mid,YELLOW);
+      // outtextxy(30,mid,"kite");
+
+	   line(20,320,90,350);
+   line(84,367,90,350);
+   line(15,340,84,367);
+   line(15,340,24,320);
+
+  setfillstyle(SOLID_FILL,WHITE);
+   floodfill(20,330,15);
+   k=320;
+	while(k>=j)
+	{
+	    putpixel(a,k,15);
+	    k--;
+	}
+	j=x3+40;
+	x3=x3-4;
+	x1=x1-4;
+       //line(45,30,i++,30);
+		//line(88,353,140,380);
+     //	line(86,357,141,386);
+       //	line(141,386,140,380);
+       //	if(i==10)
+	//  break;
+
+       //	clearviewport();
+
+    }
+
+   getch();
+}

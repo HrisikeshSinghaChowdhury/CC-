@@ -1,0 +1,417 @@
+#include<graphics.h>
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{
+   int graphdriver = VGA,graphmode=VGAHI,x=260,y=12,i,j,k=45,t,c;
+
+
+   initgraph(&graphdriver,&graphmode,"C:\\Turboc3\\BGI");
+   setbkcolor(8);
+   //left eyebrow
+  x=56;
+ for(j=150;j>=145;j--)
+  putpixel(x=x+2,j,8);
+  while(j<=150)
+  {
+     putpixel(x=x+2,j,8);
+     j++;
+  }
+    while(j>=148)
+    {
+    putpixel(x=x+2,j--,8);
+  }
+  while(j<=162)
+  {
+  putpixel(x=x+3,j++,8);
+ }
+  x=x-25;
+  j=159;
+  while(j>=03)
+  {
+   putpixel(x=x-2,j--,8);
+  }
+  x=x-18;
+  while(j<=159)
+  {
+     putpixel(x=x-2,j++,8);
+  }
+ // left_spec
+
+
+  x=x+9;
+  j=180;
+  while(j>=170)
+  {
+     putpixel(x++,j--,8);
+  }
+  while(x<=143)
+  {
+     putpixel(x=x+1,j,8);
+  }
+  while(j<=174)
+  {
+     putpixel(x=x+2,j++,8);
+  }
+  while(j<=190)
+  {
+     putpixel(x,j++,8);//y=190
+  }
+  while(j<=220)
+  {
+     putpixel(x--,j=j+3,8);
+  }
+
+  while(x>=75)
+  {
+     putpixel(x=x-2,j,8);
+  }
+  while(j>=230)
+  {
+     putpixel(x--,j--,8);
+  }
+
+  while(j>=180)
+  {
+     putpixel(x,j=j-2,8);
+  }
+
+
+  //left eye lids
+
+  x=x+27;
+
+  j=185;
+    while(j>=180)
+  {
+     putpixel(x=x+2,j--,8);
+  }
+  x=x+10;
+  while(j<=185)
+  {
+     putpixel(x=x+3,j++,8);
+  }
+
+  //left_eye
+   x=x-40;
+   j=j+10;
+   while(j>=190)
+  {
+     putpixel(x=x+2,j=j-1,8);
+  }
+
+   while(j<=195)
+  {
+     putpixel(x=x+3,j=j+1,8);
+  }
+
+
+
+
+
+
+
+
+
+
+  //left eye_ball
+  x=118;
+  c=x;
+  j=189;
+  for(i=j;i<=193;i++)
+  {
+     x=c;
+     while(x<=122)
+     {
+	putpixel(x++,i,8);
+     }
+  }
+   //ellipse(124,193,220,2,8,6);
+   ellipse(124,193,200,2,18,6);
+
+  //spec_middle_handle
+   x=160;
+  c=x;
+  j=179;
+  while(x<=178)
+  putpixel(x++,j,8);
+  j=185;
+  x=160;
+  while(x<=178)
+  putpixel(x++,j,8);
+ /* for(i=j;i<=190;i++)
+  {
+     x=c;
+     while(x<=174)
+     {
+	putpixel(x++,i,8);
+     }
+  }*/
+  //x=191
+  //y=175
+
+
+
+
+  //right eyebrows
+  j=174;
+  while(j>=165)
+  {
+     putpixel(x++,j--,8);
+  }
+  while(j>=149)
+  {
+     putpixel(x=x+4,j--,8);
+  }
+  while(j<=00)
+  {
+     putpixel(x=x+2,j++,8);
+  }
+   //x=293
+  x=230;j=170;
+
+  //y=160
+
+
+  //right_spec
+  x=170;
+  j=190;
+  while(j>=178)
+  {
+     putpixel(x=x+2,j=j-2,8);
+  }
+  j=j-6;
+  x=x+7;
+  while(x<=240)
+  {
+     putpixel(x++,j,8);
+  }
+  while(j<=170)
+  {
+     putpixel(x=x+2,j++,8);
+  }
+  x=x+10;
+  while(j<=210)
+  {
+     putpixel(x,j=j+2,8);
+  }
+
+ // while(j<=229)
+  {
+     putpixel(x=x-2,j++,8);
+  }
+  j=j+5;
+  x=x-5;
+  while(x>=200)
+  {
+     putpixel(x=x-2,j,8);
+  }
+  x=186;
+  while(j>=190)
+  {
+     putpixel(x=x-1,j=j-3,8);
+  }
+
+  //right eye lids
+  x=190;j=193;
+  while(x<=195)
+    putpixel(x++,j,8);
+
+    //printf("%d,%d",x,j);//x=220,y=195
+    j=190;
+   while(j>=185)
+   putpixel(x=x+2,j--,8);
+
+   while(x<=220)
+   putpixel(x++,j,8);
+   while(j<=190)
+   putpixel(x=x+2,j++,8);
+    //right eye_ball
+ // ellipse(213,185,830,420,8,6);
+   // ellipse(213,185,220,2,8,6);
+    ellipse(213,185,203,10,19,11);
+  x=213;
+  c=x;
+  j=185;
+  for(i=j;i<=188;i++)
+  {
+     x=c;
+    while(x<=218)
+     {
+	putpixel(x++,i,8);
+     }
+  }
+
+
+
+  //nose
+  j=258;x=140;
+  while(j<=263)
+  {
+     putpixel(x=x+2,j++,8);
+  }
+  //x=162
+  x=x+3;
+  j=263;
+  while(x<=180)
+  {
+     putpixel(x++,j,8);
+  }
+
+  while(j>=270)
+  {
+     putpixel(x=x+2,j--,8);
+  }
+
+  //moustache
+  //left
+  j=270;x=162;
+   while(j<=277)
+   putpixel(x,j++,8);
+  j=270;x=158;
+   while(j<=277)
+   putpixel(x,j++,8);
+   j=270;x=05;
+   while(j<=277)
+   putpixel(x--,j++,8);
+   j=272;x=00;
+   while(j<=280)
+   putpixel(x--,j++,8);
+
+   j=274;x=145;
+   while(j<=280)
+   putpixel(x--,j++,8);
+
+   j=278;x=135;
+   while(j<=282)
+   putpixel(x--,j++,8);
+
+   j=286;x=120;
+   while(j<=288)
+   putpixel(x--,j++,8);
+   //right
+
+   j=270;x=170;
+   while(j<=278)
+   putpixel(x++,j++,8);
+
+
+   j=276;x=180;
+   while(j<=280)
+   putpixel(x++,j++,8);
+
+   j=276;x=185;
+   while(j<=280)
+   putpixel(x++,j++,8);
+
+   j=276;x=188;
+   while(j<=280)
+   putpixel(x++,j++,8);
+
+   j=278;x=188;
+   while(j<=280)
+   putpixel(x++,j++,8);
+
+   j=280;x=200;
+   while(j<=282)
+   putpixel(x++,j++,8);
+
+   j=285;x=210;
+   while(j<=288)
+   putpixel(x++,j++,8);
+   //lips
+   x=05;
+   j=296;
+  // while(x<=
+     //lips
+     x=00;
+     while(x<=170)
+     putpixel(x++,j,8);
+    //forehead
+    j=00;
+    x=64;
+    while(j>=105)
+    putpixel(x=x+1,j=j-3,8);
+    while(j>=77)
+    putpixel(x=x+3,j=j-2,8);
+
+    j=j-6;x=05;
+    while(x<=190)
+    putpixel(x=x+2,j,8);
+    while(j<=90)
+    putpixel(x=x+8,j=j+3,8);
+  /*  while(j>=70)
+    putpixel(x=x+2,j=j-2,8);
+    x=x+5;j=j-10;
+    while(x<=240)
+    putpixel(x=x+2,j,8);
+
+    while(j<=120)
+    putpixel(x=x+2,j=j+3,8); */
+    //chin
+    //hair
+    j=210;
+    x=52;
+    while(j>=170)
+    putpixel(x=x-2,j=j-5,8);
+    j=163;x=29;
+    while(j>=00)
+    putpixel(x=x+1,j=j-2,8);
+    while(x>=25)
+    putpixel(x=x-1,j,8);
+    x=20;j=135;
+    while(j>=100)
+    putpixel(x=x+1,j=j-3,8);
+    x=18;j=90;
+    while(j>=80)
+    putpixel(x=x+3,j=j-3,8);
+    x=30;j=70;
+    while(j>=40)
+    putpixel(x=x+4,j=j-3,8);
+    j=30;x=110;
+    while(x<=160)
+    putpixel(x=x+3,j,8);
+    x=190;
+    while(j<=40)
+    putpixel(x=x+4,j=j+1,8);
+
+    while(j<=80)
+    putpixel(x=x+3,j=j+3,8);
+    j=88;
+    while(j<=120)
+    putpixel(x,j=j+3,8);
+    j=200;
+    x=50;
+    while(j<=220)
+    putpixel(x=x+1,j=j+3,8);
+    j=230;
+    while(j<=280)
+    putpixel(x=x+1,j=j+3,8);
+    j=300;x=75;
+    while(j<=330)
+    putpixel(x=x+3,j=j+2,8);
+    x=136;
+    j=j+10;
+    while(x<=160)
+    putpixel(x=x+2,j,8);
+    x=x+7;
+    while(j<=342)
+    putpixel(x=x+2,j=j+1,8);
+    x=200;j=340;
+    while(j>=320)
+    putpixel(x=x+3,j=j-2,8);
+    j=j-8;x=x+10;
+    while(j>=290)
+    putpixel(x=x+1,j=j-2,8);
+    //beard
+    x=00;j=310;
+    while(j<=30)
+    putpixel(x=x-1,j=j+1,8);
+
+      getch();
+   closegraph();
+  }

@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<conio.h>
+#include<dos.h>
+#include<graphics.h>
+#include<stdlib.h>
+void main()
+{
+  int gd=DETECT,gm,f=80,h=15,l=15,k=0,i;
+  initgraph(&gd,&gm,"");
+setcolor(LIGHTBLUE);
+/*clouds*/
+setlinestyle(0,0,1);
+ellipse(200,50,60,240,10,15);
+ellipse(225,40,345,165,20,15);
+ellipse(262,47,340,160,20,15);
+ellipse(268,66,230,50,20,15);
+ellipse(226,71,163,340,31,15);
+ellipse(300,41,20,182,21,19);
+ellipse(325,50,290,100,21,15);
+ellipse(299,70,228,20,33,15);
+/*Rain drop drawing*/
+setcolor(CYAN);
+for(i=220;i<327;i=i+26)
+pieslice(i,110,219,250,5);
+for(i=246;i<327;i=i+26)
+pieslice(i,150,219,250,5);
+for(i=246;i<327;i=i+26)
+pieslice(i,190,219,250,5);
+for(i=246;i<327;i=i+26)
+pieslice(i,230,219,250,5);
+for(i=326;i<327;i=i+26)
+pieslice(i,270,219,250,5);
+  /*draw the platform*/
+  /*setbkcolor(WHITE);*/
+  setcolor(LIGHTBLUE);
+  line(0,401,640,401);
+  /*draw the man*/
+  while(!kbhit())
+  {
+    setcolor(MAGENTA);
+    ellipse(f,300,0,180,50,30);
+    line(f-50,300,f+50,300);
+    circle(f-20,315,15);
+    line(f,300,f,350);
+    line(f-20,330,f-20,375);
+    line(f-20,375,f-20-l,400);
+    line(f-20,375,f-20+l,400);
+    line(f-20,340,f,350);
+    line(f-20,340,f-20-h,360);
+    setcolor(0);
+    delay(50);
+    /*move the man*/
+    ellipse(f,300,0,180,50,30);
+    line(f-50,300,f+50,300);
+    line(f,300,f,350);
+    circle(f-20,315,15);
+    line(f-20,330,f-20,375);
+    line(f-20,375,f-20-l,400);
+    line(f-20,375,f-20+l,400);
+    line(f-20,340,f,350);
+    line(f-20,340,f-20-h,360);
+    f++;
+    l--;
+    if(l==-15)
+    l=15;
+    if(k==1)
+    h++;
+    else
+    h--;
+    if(h==15)
+    k=0;
+    else if(h==-15)
+    k=1;
+    if(f==640)
+    exit;
+  }
+
+  getch();
+  closegraph();
+}

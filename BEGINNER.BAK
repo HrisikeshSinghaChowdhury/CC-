@@ -1,0 +1,42 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+class person
+{
+   char name[30][10];
+   int age;
+   public:
+   void getdata();
+   void display();
+   int i,n;
+};
+void person :: getdata()
+{
+   cout << "\n Enter the number of students  :";
+   cin  >> n;
+   for(i=1;i<=n;i++)
+   {
+   cout << "\n Enter name :";
+   fflush(stdin);
+   cin >> name[i];
+   }
+   cout << "\n Enter age  :";
+   cin >> age;
+}
+void person :: display()
+{
+   cout << "\n\t\tName" << "\tAge";
+   for(i=1;i<=n;i++)
+   {
+   cout << "\n\t\t" << name[i] << "\t\t" << age;
+   }
+}
+int main()
+{
+   clrscr();
+   person p;
+   p.getdata();
+   p.display();
+   getch();
+   return 0;
+}

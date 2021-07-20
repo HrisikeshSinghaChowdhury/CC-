@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main()
+{
+    char ch[4],s[4];
+    int i,len;
+    clrscr();
+    printf("Enter the sentence");
+    gets(s);
+    strcat(s," ");
+    len=strlen(s);
+    printf("\n%d",len);
+    strcpy(s," ");
+    for(i=0;i<len;i++)
+    {
+	if(ch[i]==' ')
+	{
+	    puts(s);
+	    strcpy(s," ");
+	}
+	else
+	{
+	    strcat(s,ch);
+	}
+    }
+    getch();
+}

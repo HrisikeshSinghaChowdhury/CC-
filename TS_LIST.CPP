@@ -1,0 +1,244 @@
+#include<iostream.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+template <class t>
+class node
+{
+public:
+int data;
+node<t> *next;
+	void getdata()
+	{
+	      cout<<"Enter any number"<<endl;
+	      cin>>data;
+	}
+	void show()
+	{
+	      cout<<data<<",";
+	}
+};
+void main()
+{
+	node <int> *start=NULL,*current,*temp,*p;
+	int choice,num,count,pos,position,i,x,cnt;
+	clrscr();
+	while(1)
+	{
+		printf("\n1.Create List\n");
+		printf("2.Display\n");
+		printf("3.Count\n");
+		printf("4.Search\n");
+		printf("5.Add to empty list / Add at beginning\n");
+		printf("6.Add at end\n");
+		printf("7.Add after node\n");
+		printf("8.Add before node\n");
+		printf("9.Add at position\n");
+		printf("10.Delete\n");
+		printf("11.Reverse\n");
+		printf("12.Quit\n\n");
+
+		printf("Enter your choice : ");
+		scanf("%d",&choice);
+
+		switch(choice)
+		{
+		 case 1:
+			temp=new node<int>;
+			if(start == NULL)
+			{
+				start=temp;
+				current=temp;
+			}
+			else
+			{
+				current->next=temp;
+				current=temp;
+			}
+			current->getdata();
+			current->next=NULL;
+			break;
+		 case 2:
+			cout<<"\nAll nodes are"<<endl;
+			for(temp=start;temp!=NULL;temp=temp->next)
+			{
+				temp->show();
+			}
+			break;
+		 case 3:
+			count=0;
+			for(temp=start;temp!=NULL;temp=temp->next)
+				count++;
+			cout<<"\nNumber of nodes at present is "<<count<<endl;
+			break;
+		 case 4:
+			cout<<"\nEnter the element to be searched : "<<endl;
+			cin>>num;
+			 node <int> *p=start;
+			pos=1;x=0;
+			while(p!=NULL)
+			{
+				if(p->data==num)
+				{
+					cout<<"\nItem "<<num<<" found at position "<<pos;
+					x++;
+				}
+				p=p->next;
+				pos++;
+			}
+			if(x==0)
+				cout<<"\nItem "<<num<<" not found in the list";
+			break;
+		 case 5:
+			cout<<"\n Enter the element to be inserted : ";
+			cin>>num;
+			temp=new node<int>;
+			temp->data=num;
+			temp->next=start;
+			start=temp;
+			break;
+		 case 6:
+			cout<<"\nEnter the element to be inserted : ";
+			cin>>num;
+			temp=new node<int>;
+			temp->data=num;
+			p=start;
+			while(p->next!=NULL)
+				p=p->next;
+			p->next=temp;
+			temp->next=NULL;
+			break;
+		 case 7:
+			cout<<"\nEnter the element to be inserted : ";
+			cin>>num;
+			cout<<"\nEnter the element after which to insert : ";
+			cin>>position;
+			p=start;
+			cnt=0;
+			while(p!=NULL)
+			{
+				if(p->data==position)
+				{
+					temp=new node<int>;
+					temp->data=num;
+					temp->next=p->next;
+					p->next=temp;
+					cnt++;
+					break;
+				}
+				p=p->next;
+			}
+			if(cnt==0)
+				cout<<"\n"<<position<<" not present in the list";
+			break;
+		 case 8:
+			cout<<"\nEnter the element to be inserted : ";
+			cin>>num;
+			cout<<"\nEnter the element before which to insert : ";
+			cin>>position;
+			cnt=0;
+			if(start==NULL )
+			{
+			      cout<<"\nList is empty";
+			      break;
+			}
+			if(position==start->data)
+			{
+				temp=new node<int>;
+				temp->data=num;
+				temp->next=start;
+				start=temp;
+				cnt++;
+				break;
+			}
+			p=start;
+			while(p->next!=NULL)
+			{
+				if(p->next->data==position)
+				{
+					temp=new node<int>;
+					temp->data=num;
+					temp->next=p->next;
+					p->next=temp;
+					cnt++;
+					break;
+				}
+				p=p->next;
+			}
+			if(cnt==0)
+				cout<<"\n"<<position<<" is not present in the list\n";
+			break;
+		 case 9:
+			cout<<"\nEnter the element to be inserted : ";
+			cin>>num;
+			cout<<"\nEnter the position where you want to insert : ";
+			cin>>position;
+			temp=new node<int>;
+			temp->data=num;
+			if(position==1)
+			{
+				temp->next=start;
+				start=temp;
+				break;
+			}
+			p=start;
+			for(i=1; i<position-1 && p!=NULL; i++)
+				p=p->next;
+			if(p==NULL)
+				cout<<"\n There are less than elements "<<pos;
+			else
+			{
+				temp->next=p->next;
+				p->next=temp;
+			}
+			break;
+		 case 10:
+			cout<<"\nEnter the element to be deleted : ";
+			cin>>num;
+			if(start==NULL)
+			{
+				cout<<"\n List is empty";
+				break;
+			}
+			if(start->data==num)
+			{
+				temp=start;
+				start=start->next;
+				delete temp;
+				break;
+			}
+
+			p=start;
+			while(p->next!=NULL)
+			{
+				if(p->next->data==num)
+				{
+					temp=p->next;
+					p->next=temp->next;
+					delete temp;
+					break;
+				}
+				p=p->next;
+			}
+			cout<<"\n Element "<<num<<" not found";
+			break;
+		 case 11:
+			node <int>*prev, *ptr, *n;
+			prev=NULL;
+			ptr=start;
+			while(ptr!=NULL)
+			{
+				n=ptr->next;
+				ptr->next=prev;
+				prev=ptr;
+				ptr=n;
+			}
+			start=prev;
+			break;
+		 case 12:
+			 exit(1);
+		 default:
+			 printf("Wrong choice\n");
+		}
+	}
+}

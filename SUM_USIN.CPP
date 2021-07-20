@@ -1,0 +1,26 @@
+#include<stdio.h>
+ #include<conio.h>
+int b=1,n;
+void main()
+{
+clrscr();
+int sum(int ,int );
+int a;
+printf("\n enter the limit");
+scanf("%d",&n);
+a=sum(b,n);
+printf("%d",a);
+getch();
+}
+int sum(int a1,int n1)
+{
+int sum1=0;
+while(n1>=1)
+{
+n1--;
+sum1=sum1+a1;
+a1++;
+sum(a1,n1);
+}
+return(sum1);
+}

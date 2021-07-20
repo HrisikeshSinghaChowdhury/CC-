@@ -1,0 +1,203 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdlib.h>
+template <class T>
+class Vector
+{
+	int size;
+	T *v;
+	public:
+	Vector(int n)
+	{
+		v=new T[n];
+		size=n;
+	}
+	void input();
+	void display();
+	void scalar_mul(T);
+	void update();
+};
+	template <class T>
+	void Vector <T>::input()
+	{
+		cout<<"\nEnter elements "<<endl;
+		for(int i=0;i<size;i++)
+		{
+			cout<<"\n Element "<<(i+1)<<":\t";
+			cin>>v[i];
+		}
+	}
+	template <class T>
+	void Vector <T>::display()
+	{
+		char c;
+		cout<<"\nA=";
+		for(int i=0;i<size;i++)
+		{
+			c=105+i;
+			cout<<"( "<<v[i]<<c<<" )"<<" + ";
+		}
+		cout<<"\b\b\b  ";
+	}
+	template<class T>
+	void Vector <T>::scalar_mul(T n)
+	{
+		for(int i=0;i<size;i++)
+		v[i]=v[i]*n;
+	}
+	template<class T>
+	void Vector <T>::update()
+	{
+		T a,b;
+		int i=0,flag=0;
+		cout<<"\nEnter the value to be updated:\t";
+		cin>>a;
+		while(i<size && flag==0)
+		{
+			if(v[i]==a)
+			{
+				cout<<"\nEnter the new value :\t";
+				cin>>b;
+				cout<<"\n\n---------Before Updation -------------\n\n";
+				display();
+				v[i]=b;
+				cout<<"\n\n---------After Updation -------------\n\n";
+				display();
+				flag=1;
+				break;
+			}
+			else
+			i++;
+		}
+		if(flag==0)
+		cout<<"\nElement not present"<<endl;
+	}
+	void main()
+	{
+		int n,ch;
+		clrscr();
+		do
+		{
+			cout<<"\n ------------MAIN MENU-----------\t";
+			cout<<"\n 1. Vector of Integer type.\n 2.Vector of float type.\n 3.Exit\n";
+			cout<<"\nEnter choice:\t";
+			cin>>ch;
+			switch(ch)
+			{
+			case 1:
+				int m;
+				cout<<"\nEnter number of elements :\t";
+				cin>>n;
+				Vector <int>v(n);
+				v.input();
+				v.display();
+				v.update();
+				//v.display();
+				do
+				{
+					cout<<"\nEnter a scalar number:\t";
+					cin>>m;
+				}while(m==0);
+				cout<<"\n\n-------------Before scalar multiplication --------\n\n";
+				v.display();
+				v.scalar_mul(m);
+				cout<<"\n\n-------------After scalar multiplication --------\n\n";
+				v.display();
+			break;
+			case 2:
+				//float m;
+				cout<<"\nEnter number of elements :\t";
+				cin>>n;
+				Vector <float>v1(n);
+				v1.input();
+				v1.display();
+				v1.update();
+				do
+				{
+					cout<<"\nEnter a scalar number:\t";
+					cin>>m;
+				}while(m==0.0);
+				cout<<"\n\n-------------Before scalar multiplication --------\n\n";
+				v1.display();
+				v1.scalar_mul(m);
+				cout<<"\n\n-------------After scalar multiplication --------\n\n";
+				v1.display();
+			break;
+			case 3:
+				exit(0);
+			break;
+			default:
+				cout<<"\n Wrong choice"<<endl;
+			break;
+		}
+		}while (ch!=3);
+	getch();
+
+}
+/****************OUTPUT********************
+ ------------MAIN MENU-----------
+ 1. Vector of Integer type.
+ 2.Vector of float type.
+ 3.Exit
+
+Enter choice:   1
+Enter number of elements  : 2
+
+element 1     :4
+element 2     :6
+
+A=( 4i ) + ( 6j )
+Enter the value to be updated:  9
+
+Element not present
+
+Enter a scalar number:  3
+
+
+-------------Before scalar multiplication --------
+
+
+A=( 4i ) + ( 6j )
+
+-------------After scalar multiplication --------
+
+
+A=( 12i ) + ( 18j )
+ ------------MAIN MENU-----------
+ 1. Vector of Integer type.
+ 2.Vector of float type.
+ 3.Exit
+
+Enter choice:   2
+Enter number of elements  : 2
+/****************************************
+element 1     :9.8
+element 2     :7.9
+
+A=( 9.8i ) + ( 7.9j )
+
+---------After Updation -------------
+
+
+A=( 9.8i ) + ( 5.9j )
+Enter a scalar number:  6
+
+
+-------------Before scalar multiplication --------
+
+
+A=( 9.8i ) + ( 5.9j )
+
+-------------After scalar multiplication --------
+
+
+A=( 58.800003i ) + ( 35.400002j )
+ ------------MAIN MENU-----------
+ 1. Vector of Integer type.
+ 2.Vector of float type.
+ 3.Exit
+
+Enter choice:   3
+
+
+****************************************/

@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{
+   int n=42,rem,sum=0;
+   clrscr();
+   rem=n%2;
+   sum=pow(10,1)+rem;
+   printf("%d",sum);
+getch();
+}

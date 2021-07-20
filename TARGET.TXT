@@ -1,0 +1,19 @@
+
+
+No of elements : 0
+
+The sorted list is :
+
+
+
+Total sum : 0
+
+Mean is :-NAN
+
+Median is : 0.50
+
+First quartile is : 8
+Second quartile is : 0.500000
+Third quartile is : 8
+
+Standard daviation : -NAN

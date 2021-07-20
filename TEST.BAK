@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{
+int num,sum1=0,rem,binary,temp1,temp2,i=1;
+clrscr();
+printf("\n enter the decimal number");
+scanf("%d",&num);
+temp1=num;
+while(temp1>0)
+{
+rem=temp1%2;
+sum1=sum1+rem*i;
+i=i*10;
+temp1=temp1/2;
+}
+temp2=sum1;
+i=1;
+while(temp2>0)
+{
+rem=temp2%10;
+binary=binary+rem*i;
+i=i*10;
+temp2=temp2/10;
+}
+
+printf("\n%d",binary);
+getch();
+}

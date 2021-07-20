@@ -1,0 +1,102 @@
+/***************************NUMERICALS BISECTIONS METHOD**********************************************/
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
+void main()
+   {
+   float func(float x);
+   float a,b,p,tol,FA,FB,FP;
+   int i=1,range;
+   clrscr();
+
+   printf("\nenter the value of x1:");
+   scanf("%f",&a);
+   printf("\nenter the value of x2:");
+   scanf("%f",&b);
+   printf("\nenter the value of number of iterations.(NOTE)(As the range increase the value of f(p) will converge to 0 and the value of p at that point is the root of the equation:");
+   scanf("%d",&range);
+
+   while(i<=range)
+      {
+      printf("%d\t",i);
+      FA=func(a);
+      printf("%f\t",a);
+      printf("%f\t",b);
+      p=(a+b)/2;
+      FP=func(p);
+      printf("%f\t",p);
+      printf("%f\t",FP);
+      printf("\n");
+      if((FA*FP)>0)
+	 {
+	 a=p;
+	 }
+      else
+	 {
+	 b=p;
+	 }
+      i=i+1;
+    }
+getch();
+}
+
+
+float func(float x)
+{
+   float ans,c,g;
+   c=pow(x,3);
+   g=4*pow(x,2);
+   ans=(c+g)-10;
+   return(ans);
+}
+/***********************OUTPUT***********************
+*****************************************************
+
+enter the value of x1:1
+
+enter the value of x2:2
+
+enter the value of number of iterations.(NOTE)(As the range increase the value of f(p) will converge to 0 and the value of p at that point is the root of the equation:13
+1       1.000000        2.000000        1.500000        2.375000
+2       1.000000        1.500000        1.250000        -1.796875
+3       1.250000        1.500000        1.375000        0.162109
+4       1.250000        1.375000        1.312500        -0.848389
+5       1.312500        1.375000        1.343750        -0.350983
+6       1.343750        1.375000        1.359375        -0.096409
+7       1.359375        1.375000        1.367188        0.032356
+8       1.359375        1.367188        1.363281        -0.032150
+9       1.363281        1.367188        1.365234        0.000072
+10      1.363281        1.365234        1.364258        -0.016047
+11      1.364258        1.365234        1.364746        -0.007989
+12      1.364746        1.365234        1.364990        -0.003959
+13      1.364990        1.365234        1.365112        -0.001944
+
+*****************************************************************
+****************************2ND RUN*****************************
+
+enter the value of x2:2
+
+enter the value of number of iterations.(NOTE)(As the range increase the value of f(p) will converge to 0 and the value of p at that point is the root of the equation:20
+1       1.000000        2.000000        1.500000        2.375000
+2       1.000000        1.500000        1.250000        -1.796875
+3       1.250000        1.500000        1.375000        0.162109
+4       1.250000        1.375000        1.312500        -0.848389
+5       1.312500        1.375000        1.343750        -0.350983
+6       1.343750        1.375000        1.359375        -0.096409
+7       1.359375        1.375000        1.367188        0.032356
+8       1.359375        1.367188        1.363281        -0.032150
+9       1.363281        1.367188        1.365234        0.000072
+10      1.363281        1.365234        1.364258        -0.016047
+11      1.364258        1.365234        1.364746        -0.007989
+12      1.364746        1.365234        1.364990        -0.003959
+13      1.364990        1.365234        1.365112        -0.001944
+14      1.365112        1.365234        1.365173        -0.000936
+15      1.365173        1.365234        1.365204        -0.000432
+16      1.365204        1.365234        1.365219        -0.000180
+17      1.365219        1.365234        1.365227        -0.000054
+18      1.365227        1.365234        1.365231        0.000009
+19      1.365227        1.365231        1.365229        -0.000022
+20      1.365229        1.365231        1.365230        -0.000007
+
+*********************************************************************/

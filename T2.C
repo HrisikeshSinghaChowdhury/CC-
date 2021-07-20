@@ -1,0 +1,39 @@
+#include<graphics.h>
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	int graphdriver = VGA,graphmode=VGAHI,x,y,i,k;
+	initgraph(&graphdriver,&graphmode,"C:\\Turboc3\\BGI");
+printf("A B");
+putpixel(0,0,15);
+putpixel(0,1,15);
+putpixel(0,2,15);
+putpixel(0,3,15);
+putpixel(0,4,15);
+putpixel(0,5,15);
+putpixel(0,6,15);
+putpixel(0,7,15);
+putpixel(0,8,15);
+putpixel(0,9,15);
+putpixel(0,10,15);
+putpixel(0,11,15);
+putpixel(0,12,15);
+putpixel(0,12,15);
+putpixel(1,12,15);
+putpixel(3,12,15);
+putpixel(4,12,15);
+putpixel(5,12,15);
+putpixel(6,12,15);
+/*putpixel(7,12,15);
+putpixel(8,12,15);
+putpixel(9,12,15);
+putpixel(10,12,15);
+putpixel(11,12,15);
+putpixel(12,12,15);
+putpixel(13,12,15);*/
+getch();
+   closegraph();
+}

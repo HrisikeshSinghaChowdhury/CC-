@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{
+   int a,b,c,c1;
+   float X1,X2,d,s;
+   clrscr();
+   printf("\n enter the value of a \n");
+   scanf("%d",&a);
+   printf("\n enter the value of b \n");
+   scanf("%d",&b);
+   printf("\n enter the value of c \n");
+   scanf("%d",&c);
+   printf("\n the quadratic equation is\n");
+   if(a!=0)
+     {
+     printf("%d",a);
+     printf("x^2");
+     }
+   if(b!=0)
+     {
+	 if(b>0&&a!=0)
+	 printf("+%d",b);
+	 else
+	 printf("%d",b);
+     printf("x");
+     }
+   if(c!=0)
+     {
+	if(c>0)
+	printf("+%d",c);
+	else
+	printf("%d",c);
+     }
+     d=(b*b)-(4*a*c);
+       //	s=sqrt(d);
+
+     printf("\n the two roots are\n");
+     if(d>0)
+	{
+	 s=sqrt(d);
+	X1=(-b+s)/(2*a);
+	X2=(-b-s)/(2*a);
+	printf("\ntwo roots are real and distinct\n");
+	printf("\n x1=%f",X1);
+	printf("\n x2=%f",X2);
+	}
+     else
+	{
+	if(d==0)
+	   {
+	   printf("\n the roots are real and equal\n");
+	   X1=X2=(-b)/(2*a);
+	   printf("\n x1=x2=%f",X1);
+	   }
+	else
+	   {
+
+	    d=d*-1;
+	    s=sqrt(d);
+	   printf("\n the roots are imaginary\n");
+	   printf("\n x1=(%d",b);
+	   printf("+ %f",s);
+	   printf("i)");
+	   c1=2*a;
+
+	   printf("/%d",c1);
+	   printf("\n x2=(%d",b);
+	   printf("- %f",s);
+	   printf("i)");
+	   printf("/ %d",c1);
+	   }
+      }
+      getch();
+}

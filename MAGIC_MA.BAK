@@ -1,0 +1,93 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n,m[50][50],row,row2,col,col2,i,j,num=1,c=1,x=4,y=0;
+    clrscr();
+    printf("\n ENTER THE SIZE OF THE SQUARE MATRIX   :");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+	for(j=0;j<n;j++)
+	{
+	    m[i][j]=0;
+	}
+    }
+    if(n%2!=0)
+    {
+	row =0;col=n/2;
+	num=1;
+	while(num<=n*n)
+	{
+	    m[row][col]=num;
+	    num++;
+	    col2=(col+1)%n;
+	    if((row-1)>=0)
+	    {
+		 row2=row-1;
+	    }
+	    else
+	    {
+		 row2=n-1;
+	    }
+	    if(m[row2][col2]!=0)
+	    {
+		 row=(row+1)%n;
+	    }
+	    else
+	    {
+		 row=row2;
+		 col=col2;
+	    }
+	}
+    }
+    else
+    {
+	 while(num<=(n*n))
+	 {
+	     for(i=0;i<n;i++)
+	     {
+		for(j=0;j<n;j++)
+		{
+		    c++;
+		    if((c-1)==y)
+		    {
+		       m[i][j]=num;
+		    }
+		    if(c==(x-1))
+		    {
+		       m[i][j]=num;
+		       c=y;
+		       y=j;
+		    }
+		    num++;
+		}
+		y=0;x--;
+
+	  }
+       }
+       num=1;
+       while(num<=(n*n))
+       {
+	   for(i=0;i<n;i++)
+	   {
+	       for(j=0;j<n;j++)
+	       {
+		    if(m[i][j]==0)
+			m[i][j]=num;
+		    num++;
+	       }
+	   }
+       }
+    }
+    printf("\n THE GENERATED MAGIC MATRIX OF SIZE %d IS AS FOLLOWS\n",n);
+  for(i=0;i<n;i++)
+    {
+	for(j=0;j<n;j++)
+	{
+	    printf("%d\t",m[i][j]);
+	}
+	printf("\n");
+    }
+    getch();
+}
